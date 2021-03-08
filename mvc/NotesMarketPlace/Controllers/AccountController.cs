@@ -3,9 +3,11 @@ using NotesMarketPlace.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -14,15 +16,13 @@ namespace NotesMarketPlace.Controllers
 {
     public class AccountController : Controller
     {
-        NotesMarketPlaceEntities dbObj = new NotesMarketPlaceEntities();
-
         // GET: Account
+        NotesMarketPlaceEntities dbObj = new NotesMarketPlaceEntities();
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -116,22 +116,20 @@ namespace NotesMarketPlace.Controllers
 
         [HttpGet]
         public ActionResult SignUp()
-        {       
+        {
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(SignUpModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 ViewData["error"] = "Something went Wrong";
                 return View("SignUp");
             }
             var isExist = IsEmailExist(model.EmailID);
-            if(isExist)
+            if (isExist)
             {
                 ModelState.AddModelError("EmailExist", "Email already exist");
                 return View(model);
@@ -145,15 +143,18 @@ namespace NotesMarketPlace.Controllers
             user.LastName = model.LastName;
             user.EmailID = model.EmailID;
             user.Password = Crypto.EncryptBase64(model.Password);
-            user.CreatedDate = DateTime.Now;
             user.IsEmailVerified = false;
+            user.CreatedDate = DateTime.Now;
             dbObj.Users.Add(user);
             dbObj.SaveChanges();
             user.CreatedBy = user.ID;
             dbObj.SaveChanges();
 
-            SendVerificationLinkEmail(user);
+
             ViewData["success"] = "Your account has been successfully created.";
+            SendVerificationLinkEmail(user);
+
+
             ModelState.Clear();
             return View("SignUp");
         }
@@ -161,11 +162,8 @@ namespace NotesMarketPlace.Controllers
         [HttpGet]
         public ActionResult ForgotPassword()
         {
-
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ForgotPassword(ForgotPasswordModel model)
@@ -175,9 +173,8 @@ namespace NotesMarketPlace.Controllers
                 ViewData["error"] = "Something went Wrong";
                 return View("ForgotPassword");
             }
-
             var existUser = dbObj.Users.Where(a => a.EmailID == model.EmailID).FirstOrDefault();
-            if(existUser==null)
+            if (existUser == null)
             {
                 ModelState.AddModelError("EmailNotExist", "Email does not exist");
                 return View("ForgotPassword");
@@ -186,23 +183,24 @@ namespace NotesMarketPlace.Controllers
             existUser.Password = Crypto.EncryptBase64(randomPassword);
             dbObj.SaveChanges();
 
-            string subject = "Note Marketplace New Temporary Password has been created for you";
+            string subject = "Note Marketplace - New Temporary Password has been created for you";
 
-            string body = "Hello ," +
-                "<br/>  We have generated a new password for you <br/>Password: " + Crypto.DecryptBase64(existUser.Password) + 
-                "<br/> Regards,<br/>Notes Marketplace";
+            string body = "Hello,<br/>We have generated a new password for you "
+                + " <br/>Password:" + Crypto.DecryptBase64(existUser.Password) + "<br/>Regards,<br/>Notes Marketplace";
+
             SendEmail(existUser.EmailID, subject, body);
-
             ViewData["success"] = "Your password has been changed successfully and newly generated password is sent on your registered email address.";
             ModelState.Clear();
 
-            return View("ForgotPassword");
+            return View();
         }
 
         [HttpGet]
         public ActionResult VerifyAccount(string id)
         {
+
             bool Status = false;
+
             var v = dbObj.Users.Where(a => a.ActivationCode == new Guid(id)).FirstOrDefault();
             if (v != null)
             {
@@ -217,35 +215,47 @@ namespace NotesMarketPlace.Controllers
             }
 
             ViewBag.Status = Status;
-
             return View();
         }
 
-
-
-          [NonAction]
+        [NonAction]
         public bool IsEmailExist(string emailID)
         {
             var existUser = dbObj.Users.Where(a => a.EmailID == emailID).FirstOrDefault();
             return existUser != null;
         }
 
+
         [NonAction]
         public void SendVerificationLinkEmail(User user)
         {
             var verifyUrl = "/Account/VerifyAccount/" + user.ActivationCode.ToString();
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
-
-            var fromEmail = new MailAddress("dsanghvi2599@gmail.com", "Notes-MarketPlace");
             var toEmail = new MailAddress(user.EmailID);
-            var fromEmailPassword = "Darshi@6570";
-            string subject = "Note Marketplace -Email Verification";
+            string subject = "Note Marketplace - Email Verification";
 
-            string body = "Hello  " +user.FirstName+" "+user.LastName+","+ 
-                "<br/>  Thank you for signing up with us.Please click on below link to verify your email address and to do login.<br/>"+
-                "<a href='" + link + "'>Verify Email Address Link</a> <br/> Regards,<br/>Notes Marketplace";
-
-             var smtp = new SmtpClient
+            string body1 = "Hello " + user.FirstName + " " + user.LastName + " ," +
+                "<br/>Thank you for signing up with us. Please click on below link to verify your email address and to do login."
+                + " <br/><br/><a href='" + link + "'>Verify Email Address link </a><br/>Regards,<br/>Notes Marketplace";
+            var email = ConfigurationManager.AppSettings["username"].ToString();
+            var passsword = ConfigurationManager.AppSettings["password"].ToString();
+            var fromEmail = new MailAddress(email, "Note Marketplace");
+            var fromEmailPassword = passsword;
+            var mail = new MailMessage(fromEmail, toEmail);
+            mail.Subject = subject;
+            string filePath = Server.MapPath(Url.Content("~/EmailTemplates/EmailVerification.html"));
+            StreamReader str = new StreamReader(filePath);
+            string body = str.ReadToEnd();
+            str.Close();
+            body = body.Replace("[Username]", user.FirstName);
+            body = body.Replace("[link]", link);
+            AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+            string imageSource = Server.MapPath(Url.Content("~/Content/images/User-Profile/logo.png"));
+            LinkedResource PictureRes = new LinkedResource(imageSource, MediaTypeNames.Image.Jpeg);
+            PictureRes.ContentId = "YourPictureId";
+            altView.LinkedResources.Add(PictureRes);
+            mail.AlternateViews.Add(altView);
+            var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
@@ -254,7 +264,31 @@ namespace NotesMarketPlace.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
+            smtp.Send(mail);
+        }
 
+        [NonAction]
+        public void SendEmail(String tomail, String subject, String body)
+        {
+            var email = ConfigurationManager.AppSettings["username"].ToString();
+            var passsword = ConfigurationManager.AppSettings["password"].ToString();
+            var fromEmail = new MailAddress(email, "Note Marketplace");
+            var toEmail = new MailAddress(tomail);
+            var fromEmailPassword = passsword;
+
+            string emailSenderHost = ConfigurationManager.AppSettings["smtp"].ToString();
+            int emailSenderPort = Convert.ToInt16(ConfigurationManager.AppSettings["portnumber"]);
+            Boolean emailIsSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSSL"]);
+
+            var smtp = new SmtpClient
+            {
+                Host = emailSenderHost,
+                Port = emailSenderPort,
+                EnableSsl = emailIsSSL,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
             using (var message = new MailMessage(fromEmail, toEmail)
             {
                 Subject = subject,
@@ -265,39 +299,6 @@ namespace NotesMarketPlace.Controllers
         }
 
         [NonAction]
-        public void SendEmail(string tomail,string subject, string body)
-        {
-            var email = ConfigurationManager.AppSettings["username"].ToString();
-            var password = ConfigurationManager.AppSettings["password"].ToString();
-            var fromEmail = new MailAddress(email, "Notes-MarketPlace");
-            var toEmail = new MailAddress(tomail);
-            var fromEmailPassword = password;
-            string emailSenderHost = ConfigurationManager.AppSettings["smtp"].ToString();
-            int emailSenderPort = Convert.ToInt16(ConfigurationManager.AppSettings["portnumber"]);
-            Boolean emailIsSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSSL"]);
-
-            var smtp = new SmtpClient
-            {
-               
-
-                Host = emailSenderHost,
-                Port =emailSenderPort,
-                EnableSsl = emailIsSSL,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
-            };
-
-            using(var message = new MailMessage(fromEmail, toEmail)
-            {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-                smtp.Send(message);
-
-        }
-
         public static string GeneratePassword(int lengthOfPassword)
         {
             const int MAXIMUM_IDENTICAL_CONSECUTIVE_CHARS = 2;
@@ -307,9 +308,7 @@ namespace NotesMarketPlace.Controllers
             const string SPECIAL_CHARACTERS = @"!#$%&*@\";
             const string SPACE_CHARACTER = " ";
 
-
             string characterSet = "";
-
 
             characterSet += LOWERCASE_CHARACTERS;
 
@@ -341,8 +340,6 @@ namespace NotesMarketPlace.Controllers
 
             return string.Join(null, password);
         }
-
-
 
     }
 }
