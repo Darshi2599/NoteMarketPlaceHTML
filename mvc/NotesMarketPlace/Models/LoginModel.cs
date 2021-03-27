@@ -12,14 +12,10 @@ namespace NotesMarketPlace.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string EmailID { get; set; }
-
         [Required]
         [DataType(DataType.Password)]
-        /*[RegularExpression(@"^((?=.*[0-9])(?=.*[a-z])(?=.*[@#$%^&-+=()])(?=\\S+$).{6, 24}$")]*/
         public string Password { get; set; }
-
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
-
     }
 }

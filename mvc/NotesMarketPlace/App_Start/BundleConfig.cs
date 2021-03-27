@@ -25,10 +25,11 @@ namespace NotesMarketPlace
                       "~/Scripts/sweetalert.min.js",
                       "~/Scripts/DataTables/jquery.dataTables.js",
                       "~/Scripts/DataTables/dataTables.bootstrap.js",
-                      "~/Scripts/script.js" ));
+                      "~/Scripts/pagination.js",
+                      "~/Scripts/script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/headerjs").Include(
-                     "~/Scripts/header.js"));
+                      "~/Scripts/header.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap/bootstrap.min.css",

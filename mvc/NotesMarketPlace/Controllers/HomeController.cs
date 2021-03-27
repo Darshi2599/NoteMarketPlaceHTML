@@ -16,13 +16,14 @@ namespace NotesMarketPlace.Controllers
         NotesMarketPlaceEntities dbObj = new NotesMarketPlaceEntities();
         public ActionResult Index()
         {
-
+            
             return View();
         }
 
         [HttpGet]
         public ActionResult ContactUs()
         {
+
             return View();
         }
 
@@ -30,13 +31,13 @@ namespace NotesMarketPlace.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ContactUs(ContactU model)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
+                ViewBag.Error = "Please enter valid information.";
                 return View("ContactUs");
             }
             model.QueryDate = DateTime.Now;
-            dbObj.ContactUs.Add(model);
-            dbObj.SaveChanges();
+            
 
             ManageConfigurationModel m = new ManageConfigurationModel();
             m.SupportEmailAddress = dbObj.SystemConfigurations.Where(a => a.Key == "SupportEmailAddress").FirstOrDefault().Value;
@@ -45,11 +46,20 @@ namespace NotesMarketPlace.Controllers
 
             string body = "Hello,<br/><br/>" + model.Comments
                + "<br/><br/>Regards,<br/>" + model.FullName;
+            try 
+            {
+                SendEmail(m.SupportEmailAddress, subject, body);
+                dbObj.ContactUs.Add(model);
+                dbObj.SaveChanges();
+                ModelState.Clear();
+                ViewBag.Success = "Your Query has been sent successfully.";
+            }
+            catch(Exception e)
+            {
+                ViewBag.Error = "Something went wrong.";
+            }
 
-            SendEmail(m.SupportEmailAddress, subject, body);
-            ModelState.Clear();
-            ViewBag.Message = "Your Query has been sent successfully.";
-            return RedirectToAction("ContactUs");
+            return View("ContactUs");
         }
 
         public ActionResult FAQ()
@@ -69,7 +79,7 @@ namespace NotesMarketPlace.Controllers
                 var email = User.Identity.Name;
                 var exist_user_id = dbObj.Users.Where(a => a.EmailID == email).FirstOrDefault().ID;
                 var user = dbObj.UserProfiles.Where(a => a.UserID == exist_user_id).FirstOrDefault();
-                if (user != null && user.ProfilePicture != null)
+                if(user!=null && user.ProfilePicture !=null)
                 {
                     model.DefaultMemberDisplayPicture = user.ProfilePicture;
                 }
@@ -79,11 +89,10 @@ namespace NotesMarketPlace.Controllers
 
                 }
             }
-
+           
 
             return Json(model);
         }
-
 
         [NonAction]
         public void SendEmail(String tomail, String subject, String body)

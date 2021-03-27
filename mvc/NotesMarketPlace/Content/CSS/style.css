@@ -560,6 +560,7 @@ input[type="radio"]:checked {
     border: 1px solid #6255a5;
     background-color: #6255a5;
     border-radius: 50%;
+    
 }
 .select-text{
     font-size: 16px;
@@ -696,10 +697,9 @@ input.focused {
 }
 
 .input-validation-error {
-    border: 2px solid red;
+    border : 2px solid red;
 }
 
 .field-validation-error {
-    color: red;
+    color:red;
 }
-    

@@ -18,6 +18,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="heading field-heading mb-2">Get in Touch</h1>
+
             </div>
             <div class="col-md-12">
                 <p class="sub-heading ">Let us know how to get back to you.</p>
@@ -25,7 +26,7 @@
         </div>
         <!-- User Profile Form Heading End-->
 
-        @using (Html.BeginForm("ContactUs","Home",FormMethod.Post))
+        @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <div class="row" style="min-height: 210px;">
@@ -33,30 +34,23 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                @Html.LabelFor(m=>m.FullName)<sup class="text-danger">&nbsp;*</sup>
-                                @Html.TextBoxFor(m=>m.FullName,new { @class="form-control focus",placeholder= "Enter your full name" })
-                                @Html.ValidationMessageFor(m=>m.FullName)
-                               
+                                @Html.LabelFor(m => m.FullName) <sup class="text-danger">&nbsp;*</sup>
+                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control focus", placeholder = "Enter your full name" })
+                                @Html.ValidationMessageFor(m => m.FullName)
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-
-                                @Html.LabelFor(m => m.Email)<sup class="text-danger">&nbsp;*</sup>
+                                @Html.LabelFor(m => m.Email) <sup class="text-danger">&nbsp;*</sup>
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control focus", placeholder = "Enter your email address" })
                                 @Html.ValidationMessageFor(m => m.Email)
-
-                               
-
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                               
-                                @Html.LabelFor(m => m.Subject)<sup class="text-danger">&nbsp;*</sup>
+                                @Html.LabelFor(m => m.Subject) <sup class="text-danger">&nbsp;*</sup>
                                 @Html.TextBoxFor(m => m.Subject, new { @class = "form-control focus", placeholder = "Enter your subject" })
                                 @Html.ValidationMessageFor(m => m.Subject)
-
                             </div>
                         </div>
 
@@ -64,23 +58,55 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-
-                        @Html.LabelFor(m => m.Comments)<sup class="text-danger">&nbsp;*</sup>
+                        @Html.LabelFor(m => m.Comments) <sup class="text-danger">&nbsp;*</sup>
                         @Html.TextAreaFor(m => m.Comments, new { @class = "form-control focus", placeholder = "Comments...", style = "height: 242px;" })
                         @Html.ValidationMessageFor(m => m.Comments)
+                        @*<label for="exampleFormControlTextarea1">Comments / Questions <sup>*</sup></label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Comments..." rows="7" style="height: 210px;"></textarea>*@
                     </div>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-general px-5 float-left" style="margin-top: 30px;">SUBMIT</button>
+                    <button type="submit" class="btn btn-general px-5   float-left" style="margin-top: 30px;">SUBMIT</button>
                 </div>
             </div>
+
+
         }
 
 
-
     </div>
+
+
     <!-- User Profile Form End-->
 </main>
+@if (@ViewBag.Success != null)
+{
+    @section Scripts{
+        <script type="text/javascript">
+        $(function () {
+                 swal({
+                    text: "@ViewBag.Success",
+                    icon: "success",
+                });
+        });
+        </script>
+    }
+}
+@if (@ViewBag.Error != null)
+{
+    @section Scripts{
+        <script type="text/javascript">
+        $(function () {
+                 swal({
+                    text: "@ViewBag.Error",
+                    icon: "error",
+                });
+        });
+        </script>
+    }
+}
+
+
 

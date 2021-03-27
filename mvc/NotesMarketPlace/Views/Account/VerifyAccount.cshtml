@@ -1,5 +1,8 @@
-﻿@{ ViewBag.Title = "Verify Account";
-                Layout = null; }
+﻿
+@{
+    ViewBag.Title = "Verify Account";
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html>
@@ -34,21 +37,25 @@
 
                                     @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
                                     {
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <h1 class="heading text-center">Success</h1>
-                            </div>
-                            <h3 class="text-success text-center mb-2"><i class="fa fa-check-circle"></i>Your Account is successfully verified.</h3>
-                        </div>
-                                        <p class="text-center links">Already have an account?<a href='@Url.Action("Login","Account")'> Login</a></p> }
-                                                    else
-                                                    {
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <h1 class="heading text-center">Success</h1>
+                                            </div>
+                                            <h3 class="text-success text-center mb-2"><i class="fa fa-check-circle"></i>Your Account is successfully verified.</h3>
+                                        </div>
+                                        <p class="text-center links">Already have an account?<a href='@Url.Action("Login","Account")'> Login</a></p>
+
+                                    }
+                                    else
+                                    {
                                         <div class="row">
                                             <div class="col-md-12 ">
                                                 <h1 class="heading text-center">Error</h1>
                                             </div>
                                             <h3 class="text-danger text-center mb-2"><i class="fa fa-times-circle-o"></i>Please verify your account thorugh valid email. </h3>
-                                        </div>}
+                                        </div>
+
+                                    }
 
                                 </div>
                             </div>

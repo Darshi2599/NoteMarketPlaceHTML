@@ -10,6 +10,7 @@ namespace NotesMarketPlace.Models
 {
     public class AddNoteModel
     {
+        public int ID { get; set; }
         public int SellerID { get; set; }
         public int Status { get; set; }
 
@@ -65,6 +66,10 @@ namespace NotesMarketPlace.Models
 
         [Display(Name = "Note Preview")]
         public HttpPostedFileBase NotesPreview { get; set; }
+
+        public string UploadNotesName { get; set; }
+        public string DisplayPictureName { get; set; }
+        public string NotesPreviewName { get; set; }
 
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace NotesMarketPlace.Models
 {
-    public class BuyerRequestsModel
+    public class MySoldNotesModel
     {
         public int ID { get; set; }
         public int NoteID { get; set; }
@@ -16,6 +16,5 @@ namespace NotesMarketPlace.Models
         public string SellType { get; set; }
         public decimal SellingPrice { get; set; }
         public DateTime DownloadedDate { get; set; }
-       
     }
 }

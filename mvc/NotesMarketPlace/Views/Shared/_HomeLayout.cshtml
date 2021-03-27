@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg  fixed-top  navbar-light home-nav-top mb-5">
             <div class="container">
                 <span class="navbar-brand">
-
+                    
                     <a href='@(Request.IsAuthenticated?@Url.Action("SellYourNotes","Notes"):@Url.Action("Index","Home"))'>
                         <img src="@Url.Content("~/Content/images/pre-login/top-logo.png")" class="img-responsive nav-logo" alt="notesmarketplace">
                     </a>
@@ -143,9 +143,9 @@
     @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/headerjs")
     @RenderSection("scripts", required: false)
-    <script>
+<script>
     $(function () {
-
+       
         $.ajax({
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -153,12 +153,12 @@
             type: "Post"
         })
             .done(function (d) {
-                $("#linkedin").attr("href", d.LNICON);
-                $("#facebook").attr("href", d.FBICON);
-                $("#twitter").attr("href", d.TWITTERICON);
+                $("#linkedin").attr("href", d.LNICON);    
+                $("#facebook").attr("href", d.FBICON);    
+                $("#twitter").attr("href", d.TWITTERICON);    
             });
     });
-    </script>
+</script>
 
 
 </body>

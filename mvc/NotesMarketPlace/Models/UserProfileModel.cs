@@ -10,6 +10,7 @@ namespace NotesMarketPlace.Models
 {
     public class UserProfileModel
     {
+        public int ID { get; set; }
         public int UserID { get; set; }
 
         [Required]
@@ -17,7 +18,7 @@ namespace NotesMarketPlace.Models
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string FirstName { get; set; }
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name ="Last Name")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string LastName { get; set; }
 
@@ -28,7 +29,7 @@ namespace NotesMarketPlace.Models
 
         [Display(Name = "Date Of Birth")]
         public Nullable<System.DateTime> DOB { get; set; }
-
+     
         public int Gender { get; set; }
         public IEnumerable<SelectListItem> GenderList { get; set; }
         public IEnumerable<SelectListItem> CountryList { get; set; }
@@ -42,7 +43,7 @@ namespace NotesMarketPlace.Models
         [Required]
         [Display(Name = "Address Line 1")]
         public string AddressLine1 { get; set; }
-
+        
         [Display(Name = "Address Line 2")]
         public string AddressLine2 { get; set; }
         [Required]
@@ -53,10 +54,11 @@ namespace NotesMarketPlace.Models
         public string ZipCode { get; set; }
         [Required]
         public string Country { get; set; }
-
+       
         public string University { get; set; }
 
         public string College { get; set; }
+        public string ProfilePictureName { get; set; }
 
     }
 }

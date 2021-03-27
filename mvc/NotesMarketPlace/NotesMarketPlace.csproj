@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E210B76A-6B8D-4EFB-9F71-697A0DFC5213}</ProjectGuid>
+    <ProjectGuid>{E421406E-73B7-40B1-A2E5-1BE2E84164DF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -202,12 +202,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddInAppropriateModel.cs" />
+    <Compile Include="Models\AddReviewModel.cs" />
     <Compile Include="Models\BuyerRequestsModel.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\CustomerReviewModel.cs" />
     <Compile Include="Models\DashboardNotesDetailsModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\AddNoteModel.cs" />
     <Compile Include="Models\ManageConfigurationModel.cs" />
+    <Compile Include="Models\MyDownloadsModel.cs" />
+    <Compile Include="Models\MyDownloadsViewModel.cs" />
+    <Compile Include="Models\MyRejectedNotesModel.cs" />
+    <Compile Include="Models\MySoldNotesModel.cs" />
     <Compile Include="Models\NoteViewModel.cs" />
     <Compile Include="Models\SearchNotesViewModel.cs" />
     <Compile Include="Models\SellYourNotesViewModel.cs" />
@@ -590,6 +598,7 @@
     <Content Include="Scripts\expressive.annotations.validate.js" />
     <Content Include="Scripts\expressive.annotations.validate.min.js" />
     <Content Include="Scripts\header.js" />
+    <Content Include="Scripts\pagination.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -622,14 +631,18 @@
     <Content Include="Views\Account\VerifyAccount.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
-    <Content Include="Views\Notes\SearchNotes.cshtml" />
     <Content Include="Views\Notes\SellYourNotes.cshtml" />
     <Content Include="Views\Notes\SaveNotes.cshtml" />
+    <Content Include="Views\Notes\SearchNotes.cshtml" />
     <Content Include="Views\Notes\NoteDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\ManageNotes\BuyerRequest.cshtml" />
+    <Content Include="Views\ManageNotes\MyDownloadsNotes.cshtml" />
+    <Content Include="Views\ManageNotes\MySoldNotes.cshtml" />
+    <Content Include="Views\ManageNotes\MyRejectedNotes.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -671,9 +684,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60141</DevelopmentServerPort>
+          <DevelopmentServerPort>1836</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60141/</IISUrl>
+          <IISUrl>http://localhost:1837/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,6 +21,67 @@ namespace NotesMarketPlace.Controllers
         [HttpPost]
         public ActionResult getNotes(string Search, string CountryList, string CategoryList, string RatingList, string UniversityList, string CourseList, string TypeList)
         {
+
+            if (Search == "" && CountryList == "" && CategoryList == "" && RatingList == "" && UniversityList == "" && CourseList == "" && TypeList == "")
+            {
+                int ref_id = dbObj.ReferenceDatas.Where(a => a.Value == "Published").FirstOrDefault().ID;
+                List<SellerNote> listOfNotes1 = dbObj.SellerNotes.Where(a => a.Status == ref_id).ToList();
+                List<NoteViewModel> listOfNotesDetails = new List<NoteViewModel>();
+
+                foreach (SellerNote note in listOfNotes1)
+                {
+                    NoteViewModel n = new NoteViewModel();
+                    n.ID = note.ID;
+                    n.SellerID = note.SellerID;
+                    n.Title = note.Title;
+                    n.Category = dbObj.NoteCategories.Where(a => a.ID == note.Category).FirstOrDefault().Name;
+                    n.DisplayPicture = "/" + note.DisplayPicture;
+
+                    var uploadObj = dbObj.SellerNotesAttachments.Where(a => a.NoteID == note.ID).FirstOrDefault();
+                    n.UploadNotes = uploadObj.FilePath;
+                    n.UploadNotesName = uploadObj.FileName;
+                    if (note.NoteType != null)
+                    {
+                        n.NoteType = dbObj.NoteTypes.Where(a => a.ID == note.NoteType).FirstOrDefault().Name;
+                    }
+                    n.NumberofPages = note.NumberofPages;
+                    n.Description = note.Description;
+                    n.UniversityName = note.UniversityName;
+                    if (note.Country != null)
+                    {
+                        n.Country = dbObj.Countries.Where(a => a.ID == note.Country).FirstOrDefault().Name;
+                    }
+                    n.Course = note.Course;
+                    n.CourseCode = note.CourseCode;
+                    n.Professor = note.Professor;
+                    var sellingMode = note.IsPaid ? "P" : "F";
+                    n.IsPaid = dbObj.ReferenceDatas.Where(a => a.DataValue == sellingMode).FirstOrDefault().Value;
+                    n.SellingPrice = note.SellingPrice;
+                    n.NotesPreview = note.NotesPreview;
+                    if (note.PublishedDate != null)
+                    {
+                        n.PublishedDate = DateTime.Parse(note.PublishedDate.ToString());
+
+                    }
+
+                    n.CountOfSpamReport = dbObj.SellerNotesReportedIssues.Where(a => a.NoteID == note.ID).Count();
+                    var ratingObj = dbObj.SellerNotesReviews.Where(a => a.NoteID == note.ID).ToList();
+                    if (ratingObj.Count() != 0)
+                    {
+
+                        n.Rating = ratingObj.Average(a => a.Ratings);
+                        n.NoOfReviews = ratingObj.Count();
+                    }
+
+
+                    listOfNotesDetails.Add(n);
+
+
+                }
+                return Json(listOfNotesDetails);
+            }
+
+
             int Type = (TypeList != "") ? int.Parse(TypeList) : 0;
             int Country = (CountryList != "") ? int.Parse(CountryList) : 0;
             int Category = (CategoryList != "") ? int.Parse(CategoryList) : 0;
@@ -71,7 +133,7 @@ namespace NotesMarketPlace.Controllers
             }
 
             List<NoteViewModel> listOfNotesDetails1 = new List<NoteViewModel>();
-            int i = 0;
+
             foreach (SellerNote note in listOfNotes.Distinct())
             {
                 NoteViewModel n = new NoteViewModel();
@@ -117,10 +179,8 @@ namespace NotesMarketPlace.Controllers
                     n.NoOfReviews = ratingObj.Count();
                 }
                 listOfNotesDetails1.Add(n);
-                if (i == 0)
-                {
-                    break;
-                }
+
+
             }
 
 
@@ -132,60 +192,6 @@ namespace NotesMarketPlace.Controllers
         public ActionResult SearchNotes()
         {
             SearchNotesViewModel model = new SearchNotesViewModel();
-            int ref_id = dbObj.ReferenceDatas.Where(a => a.Value == "Published").FirstOrDefault().ID;
-            List<SellerNote> listOfNotes = dbObj.SellerNotes.Where(a => a.Status == ref_id).ToList();
-            List<NoteViewModel> listOfNotesDetails = new List<NoteViewModel>();
-
-            foreach (SellerNote note in listOfNotes)
-            {
-                NoteViewModel n = new NoteViewModel();
-                n.ID = note.ID;
-                n.SellerID = note.SellerID;
-                n.Title = note.Title;
-                n.Category = dbObj.NoteCategories.Where(a => a.ID == note.Category).FirstOrDefault().Name;
-                n.DisplayPicture = note.DisplayPicture;
-
-                var uploadObj = dbObj.SellerNotesAttachments.Where(a => a.NoteID == note.ID).FirstOrDefault();
-                n.UploadNotes = uploadObj.FilePath;
-                n.UploadNotesName = uploadObj.FileName;
-                if (note.NoteType != null)
-                {
-                    n.NoteType = dbObj.NoteTypes.Where(a => a.ID == note.NoteType).FirstOrDefault().Name;
-                }
-                n.NumberofPages = note.NumberofPages;
-                n.Description = note.Description;
-                n.UniversityName = note.UniversityName;
-                if (note.Country != null)
-                {
-                    n.Country = dbObj.Countries.Where(a => a.ID == note.Country).FirstOrDefault().Name;
-                }
-                n.Course = note.Course;
-                n.CourseCode = note.CourseCode;
-                n.Professor = note.Professor;
-                var sellingMode = note.IsPaid ? "P" : "F";
-                n.IsPaid = dbObj.ReferenceDatas.Where(a => a.DataValue == sellingMode).FirstOrDefault().Value;
-                n.SellingPrice = note.SellingPrice;
-                n.NotesPreview = note.NotesPreview;
-                if (note.PublishedDate != null)
-                {
-                    n.PublishedDate = DateTime.Parse(note.PublishedDate.ToString());
-
-                }
-
-                n.CountOfSpamReport = dbObj.SellerNotesReportedIssues.Where(a => a.NoteID == note.ID).Count();
-                var ratingObj = dbObj.SellerNotesReviews.Where(a => a.NoteID == note.ID).ToList();
-                if (ratingObj.Count() != 0)
-                {
-
-                    n.Rating = ratingObj.Average(a => a.Ratings);
-                    n.NoOfReviews = ratingObj.Count();
-                }
-
-
-                listOfNotesDetails.Add(n);
-
-            }
-
             List<SelectListItem> CategoryList = dbObj.NoteCategories.Where(a => a.IsActive == true)
                .Select(x =>
                new SelectListItem()
@@ -234,7 +240,7 @@ namespace NotesMarketPlace.Controllers
                 Value = x.NoteID.ToString()
             }).Distinct().ToList();
 
-            model.ListOfNotes = listOfNotesDetails;
+
             model.CategoryList = CategoryList;
             model.CourseList = CourseList;
             model.UniversityList = UniversityList;
@@ -242,7 +248,6 @@ namespace NotesMarketPlace.Controllers
             model.RatingList = RatingList;
             model.CountryList = CountryList;
             return View(model);
-
         }
 
         [HttpGet]
@@ -290,6 +295,21 @@ namespace NotesMarketPlace.Controllers
                 n.Rating = ratingObj.Average(a => a.Ratings);
                 n.NoOfReviews = ratingObj.Count();
             }
+            List<SellerNotesReview> listOfReview = dbObj.SellerNotesReviews.Where(a => a.NoteID == ID).ToList();
+            n.Reviews = new List<CustomerReviewModel>();
+            foreach(SellerNotesReview r in listOfReview)
+            {
+                CustomerReviewModel m = new CustomerReviewModel();
+                m.ID = r.ID;
+                m.NoteID = r.NoteID;
+                m.ReviewByID = r.ReviewedByID;
+                var user = dbObj.Users.Where(a => a.ID == r.ReviewedByID).FirstOrDefault();
+                m.ReviewerFullName = user.FirstName + user.LastName;
+                m.ReviewerPhoto = dbObj.UserProfiles.Where(a => a.UserID == r.ReviewedByID).FirstOrDefault().ProfilePicture;
+                m.Comments = r.Comments;
+                m.Ratings = r.Ratings;
+                n.Reviews.Add(m);
+            }
             return View(n);
         }
 
@@ -298,15 +318,16 @@ namespace NotesMarketPlace.Controllers
         public ActionResult SellYourNotes()
         {
             SellYourNotesViewModel model = new SellYourNotesViewModel();
-
+            string emailID = User.Identity.Name;
+            var id = dbObj.Users.Where(a => a.EmailID == emailID).FirstOrDefault().ID;
             int publish_id = dbObj.ReferenceDatas.Where(a => a.Value == "Published" && a.IsActive == true).FirstOrDefault().ID;
             int progress_id1 = dbObj.ReferenceDatas.Where(a => a.Value == "In Review" && a.IsActive == true).FirstOrDefault().ID;
             int progress_id2 = dbObj.ReferenceDatas.Where(a => a.Value == "Submitted For Review" && a.IsActive == true).FirstOrDefault().ID;
             int progress_id3 = dbObj.ReferenceDatas.Where(a => a.Value == "Draft" && a.IsActive == true).FirstOrDefault().ID;
             List<DashboardNotesDetailsModel> ListOfPubilsh = new List<DashboardNotesDetailsModel>();
             List<DashboardNotesDetailsModel> ListOfProgress = new List<DashboardNotesDetailsModel>();
-            List<SellerNote> publishStatus = dbObj.SellerNotes.Where(a => a.Status == publish_id && a.IsActive == true).ToList();
-            List<SellerNote> progressStatus = dbObj.SellerNotes.Where(a => a.Status == progress_id1 || a.Status == progress_id2 || a.Status == progress_id3 && a.IsActive == true).ToList();
+            List<SellerNote> publishStatus = dbObj.SellerNotes.Where(a => a.Status == publish_id && a.SellerID == id  && a.IsActive == true).ToList();
+            List<SellerNote> progressStatus = dbObj.SellerNotes.Where(a => a.SellerID == id && a.IsActive == true && (a.Status == progress_id1 || a.Status == progress_id2 || a.Status == progress_id3)).ToList();
             foreach (var a in publishStatus)
             {
                 DashboardNotesDetailsModel d = new DashboardNotesDetailsModel();
@@ -338,7 +359,15 @@ namespace NotesMarketPlace.Controllers
             model.ListOfPublished = ListOfPubilsh;
             model.ListOfProgress = ListOfProgress;
 
+          
+            model.NoOfSoldNotes = dbObj.Downloads.Where(a => a.Seller == id && a.IsSellerHasAllowedDownload == true).ToList().Count();
+            model.NoOfMyDownloads = dbObj.Downloads.Where(a => a.Downloader == id && a.IsSellerHasAllowedDownload == true).ToList().Count();
+            int rejected_id = dbObj.ReferenceDatas.Where(a => a.Value == "Rejected" && a.IsActive == true).FirstOrDefault().ID;
 
+            model.NoOfMyRejectedNotes = dbObj.SellerNotes.Where(a => a.SellerID == id &&  a.Status == rejected_id).ToList().Count();
+            model.NoOfBuyerRequests = dbObj.Downloads.Where(a => a.Seller == id && a.IsSellerHasAllowedDownload == false).ToList().Count();
+            List<Download> listdo = dbObj.Downloads.Where(a => a.Seller == id && a.IsSellerHasAllowedDownload == true).ToList();
+            model.MoneyEarned = Convert.ToInt32(listdo.Sum(a => a.PurchasedPrice));
             return View(model);
         }
         [HttpGet]
@@ -354,6 +383,10 @@ namespace NotesMarketPlace.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SaveNotes(AddNoteModel model, string submit)
         {
+            if(model.ID!=0)
+            {
+                ModelState.Remove("UploadNotes");
+            }
 
             if (!ModelState.IsValid)
             {
@@ -362,12 +395,23 @@ namespace NotesMarketPlace.Controllers
                 model.CountryList = note_list.CountryList;
                 model.TypeList = note_list.TypeList;
                 model.SellingModeList = note_list.SellingModeList;
+                TempData["Error"] = "Please enter valid information";
+
                 return View("SaveNotes", model);
             }
             string emailID = User.Identity.Name;
             var existUser = dbObj.Users.Where(a => a.EmailID == emailID).FirstOrDefault();
             SellerNote note = new SellerNote();
             SellerNotesAttachment note_attach = new SellerNotesAttachment();
+            if (model.ID != 0)
+            {
+                note = dbObj.SellerNotes.Where(a => a.ID == model.ID).FirstOrDefault();
+                note_attach = dbObj.SellerNotesAttachments.Where(a => a.NoteID == note.ID).FirstOrDefault();
+                int id = dbObj.Users.Where(a => a.EmailID == User.Identity.Name).FirstOrDefault().ID;
+                note.ModifiedBy = id;
+                note.ModifiedDate = DateTime.Now;
+            }
+
 
             try
             {
@@ -388,7 +432,9 @@ namespace NotesMarketPlace.Controllers
             }
             catch
             {
-                ViewBag.Message = "Display Picture upload failed!!";
+                
+                TempData["Error"] = "Display Picture upload failed!!";
+
                 return View(model);
             }
 
@@ -402,15 +448,12 @@ namespace NotesMarketPlace.Controllers
                     note_attach.FilePath = "UploadedFiles/Upload_Notes/" + _FileName;
                     note_attach.FileName = _FileName;
                 }
-                else
-                {
-                    note_attach.FilePath = null;
-                    note_attach.FileName = null;
-                }
+              
             }
             catch
             {
-                ViewBag.Message = "Upload Notes upload failed!!";
+                TempData["Error"] = "Display Picture upload failed!!";
+
                 return View(model);
             }
 
@@ -430,7 +473,8 @@ namespace NotesMarketPlace.Controllers
             }
             catch
             {
-                ViewBag.Message = "Notes Preview upload failed!!";
+                TempData["Error"] = "Display Picture upload failed!!";
+
                 return View(model);
             }
 
@@ -457,20 +501,147 @@ namespace NotesMarketPlace.Controllers
             {
                 ReferenceData r = dbObj.ReferenceDatas.Where(m => m.Value == "Submitted For Review" && m.RefCategory == "Notes Status" && m.IsActive).FirstOrDefault();
                 note.Status = r.ID;
-            }
-            note.CreatedDate = DateTime.Now;
-            note.CreatedBy = existUser.ID;
-            note_attach.CreatedDate = DateTime.Now;
-            note_attach.CreatedBy = existUser.ID;
 
-            dbObj.SellerNotes.Add(note);
+                var adminemails = dbObj.SystemConfigurations.Where(a => a.Key == "EmailAddressesForNotify").FirstOrDefault().Value;
+                string[] admins = adminemails.Split(',');
+                var email = ConfigurationManager.AppSettings["username"].ToString();
+                var passsword = ConfigurationManager.AppSettings["password"].ToString();
+                var fromEmailPassword = passsword;
+                MailMessage mailmessage = new MailMessage();
+                mailmessage.From = new MailAddress(email, "Note Marketplace");
+                mailmessage.Subject = existUser.FirstName + " sent his note for review";
+                mailmessage.Body = "Hello Admins,<br/> We want to inform you that," + existUser.FirstName + " sent his note "+
+                 model.Title+" for review.Please look at the notes and take required actions. <br/>" +
+                   
+                    "Regards, <br/>Notes Marketplace";
+                mailmessage.IsBodyHtml = true;
+                foreach (string e in admins)
+                {
+                    mailmessage.To.Add(new MailAddress(e));
+                }
+                string emailSenderHost = ConfigurationManager.AppSettings["smtp"].ToString();
+                int emailSenderPort = Convert.ToInt16(ConfigurationManager.AppSettings["portnumber"]);
+                Boolean emailIsSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSSL"]);
+
+                var smtp = new SmtpClient
+                {
+                    Host = emailSenderHost,
+                    Port = emailSenderPort,
+                    EnableSsl = emailIsSSL,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(mailmessage.From.Address, fromEmailPassword)
+                };
+
+                smtp.Send(mailmessage);
+
+
+            }
+            if (model.ID == 0)
+            {
+                note.CreatedDate = DateTime.Now;
+                note.CreatedBy = existUser.ID;
+                note_attach.CreatedDate = DateTime.Now;
+                note_attach.CreatedBy = existUser.ID;
+
+                dbObj.SellerNotes.Add(note);
+                dbObj.SaveChanges();
+                note_attach.NoteID = note.ID;
+                dbObj.SellerNotesAttachments.Add(note_attach);
+
+            }
+            
+
             dbObj.SaveChanges();
-            note_attach.NoteID = note.ID;
-            dbObj.SellerNotesAttachments.Add(note_attach);
-            dbObj.SaveChanges();
+
             ModelState.Clear();
+
+            TempData["Success"] = "Note added successfully.";
+
             return RedirectToAction("SellYourNotes", "Notes");
         }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult EditNotes(int id)
+        {
+
+            AddNoteModel note = getAllList();
+            SellerNote n = dbObj.SellerNotes.Where(a => a.ID == id).FirstOrDefault();
+
+          
+
+            List<ReferenceData> rl = dbObj.ReferenceDatas.Where(a => a.RefCategory == "Selling Mode" && a.IsActive == true).ToList();
+            List<SelectListItem> selectListsmode = new List<SelectListItem>();
+            foreach(var t in rl)
+            {
+                if(t.Value.Equals("Paid"))
+                {
+                    if (n.IsPaid)
+                    {
+                        selectListsmode.Add(new SelectListItem { Value = t.DataValue, Text = t.Value ,Selected = true});
+                    }
+                    else
+                    {
+                        selectListsmode.Add(new SelectListItem { Value = t.DataValue, Text = t.Value });
+
+                    }
+                }
+                else
+                {
+                    if (n.IsPaid)
+                    {
+                        selectListsmode.Add(new SelectListItem { Value = t.DataValue, Text = t.Value});
+                    }
+                    else
+                    {
+                        selectListsmode.Add(new SelectListItem { Value = t.DataValue, Text = t.Value,Selected = true });
+
+                    }
+                }
+            }
+
+            note.SellingModeList = selectListsmode;
+            note.ID = n.ID;
+            note.SellerID = n.SellerID;
+            note.Title = n.Title;
+            note.Category = n.Category;
+            byte[] b = Encoding.ASCII.GetBytes(n.DisplayPicture);
+            if(n.DisplayPicture!=null)
+            {
+                note.DisplayPictureName = n.DisplayPicture.Split('/').Last();
+            }
+            if (n.NotesPreview != null)
+            {
+                note.DisplayPictureName = n.NotesPreview.Split('/').Last();
+            }
+            note.UploadNotesName = dbObj.SellerNotesAttachments.Where(a => a.NoteID == n.ID).FirstOrDefault().FileName.ToString();
+            note.NoteType = n.NoteType;
+            note.Description = n.Description;
+            note.NumberofPages = n.NumberofPages;
+            note.Course = n.Course;
+            note.CourseCode = n.CourseCode;
+            note.UniversityName = n.UniversityName;
+            note.Professor = n.Professor;
+            note.SellingPrice = n.SellingPrice;
+            note.IsPaid = n.IsPaid.ToString();
+            
+            return View("SaveNotes", note);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult CloneNotes(int id)
+        {
+            int ref_id = dbObj.ReferenceDatas.Where(a => a.Value == "Draft").FirstOrDefault().ID;
+            SellerNote note = dbObj.SellerNotes.Where(a => a.ID == id).FirstOrDefault();
+            note.Status = ref_id;
+            dbObj.SaveChanges();
+            TempData["Success"] = "Your note clone successfully";
+            return Redirect("~/Notes/Editnotes/"+id);
+        }
+
+
 
         [HttpGet]
         [Authorize]
@@ -544,6 +715,22 @@ namespace NotesMarketPlace.Controllers
 
             SendEmail(Seller.EmailID, subject, body);
             return RedirectToAction("SearchNotes");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult DeleteNotes(int id)
+        {
+            SellerNote note = dbObj.SellerNotes.Where(a => a.ID == id).FirstOrDefault();
+
+            SellerNotesAttachment n_att = dbObj.SellerNotesAttachments.Where(a => a.NoteID == note.ID).FirstOrDefault();
+            dbObj.SellerNotesAttachments.Remove(n_att);
+            dbObj.SellerNotes.Remove(note);
+
+            dbObj.SaveChanges();
+            TempData["Success"] = "Note deleted successfully.";
+
+            return RedirectToAction("SellYourNotes");
         }
 
         [NonAction]
