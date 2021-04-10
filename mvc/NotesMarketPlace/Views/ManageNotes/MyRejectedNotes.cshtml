@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<NotesMarketPlace.Models.MyRejectedNotesModel>
 @{
-    ViewBag.Title = "MyRejectedNotes";
+    ViewBag.Title = "My Rejected Notes - Notes MarketPlace";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,11 +20,12 @@
     table tr td:first-child {
         text-align: center;
     }
+
     .custom-color,
-    .custom-color:hover {
+    .custom-color:hover
+    {
         color: #6255a5;
     }
-
 </style>
 
 }
@@ -91,7 +92,7 @@
                             <td>
                                 <a class="custom-color" onclick="cloneNotes(@b.NoteID)">
                                     Clone
-                                </a>
+                                    </a>
                             </td>
 
                             <td>
@@ -163,7 +164,7 @@
                     }
                 },
                 bFilter: false,
-                ordering: false,
+                ordering: true,
                 searching: true,
                 "dom": '<"top">rt<"bottom"p>'
 

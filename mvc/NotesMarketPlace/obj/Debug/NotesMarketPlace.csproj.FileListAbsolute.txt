@@ -85,177 +85,96 @@ F:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CopyCompl
 F:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.dll
 F:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.pdb
 F:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.csprojAssemblyReference.cache
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\NotesMarketPlace.dll.config
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\NotesMarketPlace.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\NotesMarketPlace.pdb
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csc.exe
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csc.exe.config
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csc.rsp
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csi.exe
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csi.exe.config
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\csi.rsp
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.AppContext.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Console.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Globalization.Calendars.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.IO.Compression.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.IO.Compression.ZipFile.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Net.Http.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Net.Sockets.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Threading.Tasks.Extensions.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.ValueTuple.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\vbc.exe
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\vbc.exe.config
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\vbc.rsp
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Antlr3.Runtime.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\EntityFramework.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\EntityFramework.SqlServer.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\ExpressiveAnnotations.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Newtonsoft.Json.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Helpers.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Mvc.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Optimization.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Razor.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.Razor.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\WebGrease.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\EntityFramework.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\EntityFramework.SqlServer.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\ExpressiveAnnotations.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Helpers.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Mvc.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Optimization.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.Razor.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\System.Web.WebPages.Razor.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Newtonsoft.Json.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Antlr3.Runtime.pdb
-C:\Users\Darshi\Desktop\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Darshi\Desktop\NotesMarketPlace\obj\Debug\NotesMarketPlace.csprojAssemblyReference.cache
-C:\Users\Darshi\Desktop\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CoreCompileInputs.cache
-C:\Users\Darshi\Desktop\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CopyComplete
-C:\Users\Darshi\Desktop\NotesMarketPlace\obj\Debug\NotesMarketPlace.dll
-C:\Users\Darshi\Desktop\NotesMarketPlace\obj\Debug\NotesMarketPlace.pdb
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\NotesMarketPlace.dll.config
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\NotesMarketPlace.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\NotesMarketPlace.pdb
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csc.exe
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csc.exe.config
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csc.rsp
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csi.exe
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csi.exe.config
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\csi.rsp
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.Managed.Core.targets
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\Microsoft.Win32.Primitives.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.AppContext.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Collections.Immutable.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Console.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Globalization.Calendars.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.IO.Compression.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.IO.Compression.ZipFile.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Net.Http.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Net.Sockets.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Reflection.Metadata.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Threading.Tasks.Extensions.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.ValueTuple.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Xml.XmlDocument.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Xml.XPath.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\vbc.exe
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\vbc.exe.config
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\vbc.rsp
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe.config
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Antlr3.Runtime.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\EntityFramework.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\EntityFramework.SqlServer.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\ExpressiveAnnotations.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Microsoft.Web.Infrastructure.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Newtonsoft.Json.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Helpers.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Mvc.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Optimization.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Razor.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.Deployment.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.Razor.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\WebGrease.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\EntityFramework.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\EntityFramework.SqlServer.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\ExpressiveAnnotations.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Helpers.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Mvc.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Optimization.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.Razor.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.Deployment.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\System.Web.WebPages.Razor.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Newtonsoft.Json.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Antlr3.Runtime.pdb
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\obj\Debug\NotesMarketPlace.csprojAssemblyReference.cache
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CoreCompileInputs.cache
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CopyComplete
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\obj\Debug\NotesMarketPlace.dll
-E:\ASP .net Project\2nd Submission\NotesMarketPlace\obj\Debug\NotesMarketPlace.pdb
+F:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.dll
+F:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.pdb
+F:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.xml
+E:\ASP .net Project\NotesMarketPlace\bin\NotesMarketPlace.dll.config
+E:\ASP .net Project\NotesMarketPlace\bin\NotesMarketPlace.dll
+E:\ASP .net Project\NotesMarketPlace\bin\NotesMarketPlace.pdb
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csc.exe
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csc.exe.config
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csc.rsp
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csi.exe
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csi.exe.config
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\csi.rsp
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.AppContext.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Collections.Immutable.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Console.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Globalization.Calendars.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.IO.Compression.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Net.Http.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Net.Sockets.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Reflection.Metadata.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.ValueTuple.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Xml.XPath.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\vbc.exe
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\vbc.exe.config
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\vbc.rsp
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe
+E:\ASP .net Project\NotesMarketPlace\bin\roslyn\VBCSCompiler.exe.config
+E:\ASP .net Project\NotesMarketPlace\bin\Antlr3.Runtime.dll
+E:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.dll
+E:\ASP .net Project\NotesMarketPlace\bin\EntityFramework.dll
+E:\ASP .net Project\NotesMarketPlace\bin\EntityFramework.SqlServer.dll
+E:\ASP .net Project\NotesMarketPlace\bin\ExpressiveAnnotations.dll
+E:\ASP .net Project\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
+E:\ASP .net Project\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ASP .net Project\NotesMarketPlace\bin\Microsoft.Web.Infrastructure.dll
+E:\ASP .net Project\NotesMarketPlace\bin\Newtonsoft.Json.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Helpers.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Mvc.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Optimization.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Razor.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.Deployment.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.dll
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.Razor.dll
+E:\ASP .net Project\NotesMarketPlace\bin\WebGrease.dll
+E:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.pdb
+E:\ASP .net Project\NotesMarketPlace\bin\DotNetZip.xml
+E:\ASP .net Project\NotesMarketPlace\bin\EntityFramework.xml
+E:\ASP .net Project\NotesMarketPlace\bin\EntityFramework.SqlServer.xml
+E:\ASP .net Project\NotesMarketPlace\bin\ExpressiveAnnotations.xml
+E:\ASP .net Project\NotesMarketPlace\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Helpers.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Mvc.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Optimization.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.Razor.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.Deployment.xml
+E:\ASP .net Project\NotesMarketPlace\bin\System.Web.WebPages.Razor.xml
+E:\ASP .net Project\NotesMarketPlace\bin\Newtonsoft.Json.xml
+E:\ASP .net Project\NotesMarketPlace\bin\Antlr3.Runtime.pdb
+E:\ASP .net Project\NotesMarketPlace\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CoreCompileInputs.cache
+E:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.csproj.CopyComplete
+E:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.dll
+E:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.pdb
+E:\ASP .net Project\NotesMarketPlace\obj\Debug\NotesMarketPlace.csprojAssemblyReference.cache
