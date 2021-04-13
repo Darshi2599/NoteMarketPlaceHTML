@@ -22,7 +22,7 @@ namespace NotesMarketPlace.Controllers
         {
             AdminDashboardViewModel model = new AdminDashboardViewModel();
             int ref_id = dbObj.ReferenceDatas.Where(a => a.Value == "Published").FirstOrDefault().ID;
-
+            
             List<SellerNote> listOfNotes = dbObj.SellerNotes.Where(a => a.Status == ref_id).ToList();
             List<AdminPublishedNotesModel> listOfNotesDetails = new List<AdminPublishedNotesModel>();
             listOfNotes = listOfNotes.Where(a => a.PublishedDate > DateTime.Now.AddMonths(-6)).ToList();
@@ -36,7 +36,7 @@ namespace NotesMarketPlace.Controllers
                 {
                     n.SellType = dbObj.NoteTypes.Where(a => a.ID == note.NoteType).FirstOrDefault().Name;
                 }
-                n.SellingPrice = (decimal)note.SellingPrice;
+                n.SellingPrice =(decimal)note.SellingPrice;
                 if (note.PublishedDate != null)
                 {
                     n.PublishedDate = DateTime.Parse(note.PublishedDate.ToString());
@@ -44,27 +44,27 @@ namespace NotesMarketPlace.Controllers
                 }
                 double totalsize = 0;
                 List<SellerNotesAttachment> notesAttachment = dbObj.SellerNotesAttachments.Where(a => a.NoteID == note.ID).ToList();
-                foreach (SellerNotesAttachment nat in notesAttachment)
+                foreach(SellerNotesAttachment nat in notesAttachment)
                 {
                     FileInfo info = new FileInfo(Server.MapPath("~/" + nat.FilePath));
-                    totalsize = totalsize + info.Length;
+                     totalsize = totalsize + info.Length;
                 }
                 double bytessize = totalsize;
-                if (bytessize > 1024 && bytessize < 1000000)
+                if (bytessize>1024 && bytessize < 1000000)
                 {
                     double sizenote = (bytessize / (1024));
-                    sizenote = Math.Round(sizenote, 2);
+                    sizenote = Math.Round(sizenote,2);
                     n.NoteSize = sizenote.ToString() + " KB";
                 }
                 else if (bytessize > 1000000)
                 {
-                    double sizenote = (bytessize / (1024 * 1024));
+                    double sizenote = (bytessize / (1024*1024));
                     sizenote = Math.Round(sizenote, 2);
                     n.NoteSize = sizenote.ToString() + " MB";
                 }
                 else
                 {
-
+                    
                     n.NoteSize = bytessize.ToString() + " Bytes";
                 }
                 n.NoOfDownloads = dbObj.Downloads.Where(a => a.NoteID == note.ID && a.IsAttachmentDownloaded == true).Count().ToString();
@@ -76,14 +76,14 @@ namespace NotesMarketPlace.Controllers
             }
             int progress_id1 = dbObj.ReferenceDatas.Where(a => a.Value == "In Review" && a.IsActive == true).FirstOrDefault().ID;
             int progress_id2 = dbObj.ReferenceDatas.Where(a => a.Value == "Submitted For Review" && a.IsActive == true).FirstOrDefault().ID;
-            model.NoOfNotesInReviewForPublish = dbObj.SellerNotes.Where(a => a.IsActive == true && (a.Status == progress_id1 || a.Status == progress_id2)).Count();
+            model.NoOfNotesInReviewForPublish = dbObj.SellerNotes.Where(a =>a.IsActive == true && (a.Status == progress_id1 || a.Status == progress_id2 )).Count();
             int role_id = dbObj.UserRoles.Where(a => a.Name == "Member").FirstOrDefault().ID;
-            List<User> listOfUsers = dbObj.Users.Where(a => a.IsActive == true && a.RoleID == role_id).ToList();
+            List<User> listOfUsers = dbObj.Users.Where(a => a.IsActive==true && a.RoleID == role_id).ToList();
             model.NoOfNewRegistration = listOfUsers.Where(a => a.CreatedDate > DateTime.Now.AddDays(-7)).Count();
             List<Download> listOfDownloads = dbObj.Downloads.Where(a => a.IsAttachmentDownloaded == true).ToList();
             model.NoOfNewNotesDownloaded = listOfDownloads.Where(a => a.AttachmentDownloadedDate > DateTime.Now.AddDays(-7)).Count();
-            model.ListOfPublish = listOfNotesDetails.OrderByDescending(a => a.NoOfDownloads).ToList();
-
+            model.ListOfPublish = listOfNotesDetails.OrderByDescending(a=>a.NoOfDownloads).ToList();
+            
             return View(model);
         }
 
@@ -263,7 +263,7 @@ namespace NotesMarketPlace.Controllers
         [HttpGet]
         public ActionResult DownloadedNotes()
         {
-            List<Download> listOfNotes = dbObj.Downloads.Where(a => a.IsAttachmentDownloaded == true && a.Seller != a.Downloader).ToList();
+            List<Download> listOfNotes = dbObj.Downloads.Where(a => a.IsAttachmentDownloaded == true).ToList();
             List<AdminDownloadedNotesModel> listOfNotesDetails = new List<AdminDownloadedNotesModel>();
 
             foreach (Download d in listOfNotes)
@@ -569,6 +569,7 @@ namespace NotesMarketPlace.Controllers
                 {
                     n_at.IsActive = false;
                 }
+                
             }
 
             User u = dbObj.Users.Where(a => a.ID == id).FirstOrDefault();
@@ -614,6 +615,7 @@ namespace NotesMarketPlace.Controllers
             TempData["Success"] = "ReportedIssue deleted successfully";
             return RedirectToAction("SpamReports");
         }
+        
         [HttpGet]
         public ActionResult DeleteReview(int id)
         {

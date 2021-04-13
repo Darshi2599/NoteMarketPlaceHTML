@@ -221,24 +221,24 @@
 {
     <script src="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js")"></script>
     <script type="text/javascript">
-
+       
         function showname(e) {
             var FileSize = e.files[0].size; // in MiB
-
+           
             if (FileSize > 10485760) {
-
+                
                 $("#invalid").html("Please Upload less then 10MB image");
             } else {
                 $("#invalid").html("");
                 var name = e.files;
                 document.getElementById("uploadpicture").innerHTML = name[0].name;
             }
-
+           
         }
 
         function setDatepicker(_this) {
 
-
+            
             let className = $(_this).parent()
                 .parent().parent().attr('class');
 
@@ -247,7 +247,7 @@
                 format: "mm/dd/yyyy",
 
                 orientation: "bottom auto",
-
+                
                 autoclose: true,
                 showOnFocus: "false"
             });

@@ -16,7 +16,6 @@ namespace NotesMarketPlace.Models
         public List<SelectListItem> UniversityList { get; set; }
         public List<SelectListItem> CourseList { get; set; }
         public List<SelectListItem> RatingList { get; set; }
-
-       
+             
     }
 }

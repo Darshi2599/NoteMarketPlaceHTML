@@ -8,7 +8,7 @@ namespace NotesMarketPlace
 {
     public static class Crypto
     {
-          
+         
 		public static string EncryptBase64(string value)
 		{
 			string result = "";

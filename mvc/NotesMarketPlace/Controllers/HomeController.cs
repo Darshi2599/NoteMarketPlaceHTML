@@ -45,8 +45,6 @@ namespace NotesMarketPlace.Controllers
                 return View("ContactUs");
             }
             model.QueryDate = DateTime.Now;
-            
-
             ManageConfigurationModel m = new ManageConfigurationModel();
             m.SupportEmailAddress = dbObj.SystemConfigurations.Where(a => a.Key == "SupportEmailAddress").FirstOrDefault().Value;
 
@@ -122,8 +120,6 @@ namespace NotesMarketPlace.Controllers
                     }
                 }
             }
-           
-
             return Json(model);
         }
 

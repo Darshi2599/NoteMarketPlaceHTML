@@ -27,7 +27,6 @@ namespace NotesMarketPlace.Models
 
         [Required(ErrorMessage = "Upload Notes is Required")]
         [Display(Name = "Upload Notes")]
-      
         public List<HttpPostedFileBase> UploadNotes { get; set; }
 
         public IEnumerable<SelectListItem> TypeList { get; set; }
